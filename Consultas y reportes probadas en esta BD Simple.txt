@@ -1,0 +1,29 @@
+1- (insertar registro en la BD)
+
+INSERT INTO Clientes (Nombre, Email, Telefono)           
+VALUES ('Juan Perez', 'juan@example.com', '1234567890'); 
+
+---------------------------------------------------------
+
+2- (Reporte de productos mas vendidos)
+
+
+SELECT Productos.Nombre, SUM(Ventas.Cantidad) AS CantidadVendida
+FROM Ventas
+JOIN Productos ON Ventas.ProductoID = Productos.ProductoID
+GROUP BY Productos.Nombre
+ORDER BY CantidadVendida DESC;
+
+---------------------------------------------------------
+
+3-(Modificar el precio de un producto)
+
+UPDATE Productos
+SET Precio = 25.99, Stock = 50
+WHERE ProductoID = 1;
+---------------------------------------------------------
+
+4-(Eliminar una venta)
+
+DELETE FROM Ventas
+WHERE VentaID = 1;
